@@ -17,13 +17,13 @@ class RootViewController: UIViewController {
         return button
     }()
     
-    let helloLabel: UILabel = {
-        
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Hello Trip Advisor"
-        return label
-    }()
+//    let helloLabel: UILabel = {
+//
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.text = "Hello Trip Advisor"
+//        return label
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class RootViewController: UIViewController {
     func configureSubviews() {
         
         self.view.addSubview(self.button)
-        self.view.addSubview(self.helloLabel)
+//        self.view.addSubview(self.helloLabel)
         self.configureSubviewsConstraints()
     }
     
@@ -48,14 +48,16 @@ class RootViewController: UIViewController {
             self.button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             
-            self.helloLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.helloLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -16)
+//            self.helloLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+//            self.helloLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -16)
         ])
     }
     
     @objc
     func didPressButton(_ sender: UIButton) {
         
-        self.helloLabel.isHidden = !self.helloLabel.isHidden
+        let secondViewController = SecondViewController(withLabel: "Hello Trip Advisor")
+        
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
